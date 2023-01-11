@@ -2,31 +2,34 @@
 import { store } from '../store.js';
 import axios from 'axios';
 
+import AppMainCard from './AppMainCard.vue';
+
 export default{
   name: 'AppMain',
+
+  components: {
+    AppMainCard,
+  },
 
   data() {
     return {
       store,
-      cardsList: []
     }
   },
 
   methods: {
     getCards() {
-      
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0 ', {
         params: {
-
         }
       })
       .then((response) => {
-        console.log(response.data.data);
-        this.cardsList = response.data.data;
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
       })
+      
     }
   },
 
@@ -48,9 +51,7 @@ export default{
           </p>
         </section>
         <section class="cards">
-          <p v-for="card in cardsList">
-            {{ card.name }}
-          </p>
+          <AppMainCard />
         </section>
       </div>
     </div>
