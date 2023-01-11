@@ -57,7 +57,7 @@ export default{
     }
 
     p {
-      font-size: .9rem;
+      font-weight: 300;
     }
   }
 
