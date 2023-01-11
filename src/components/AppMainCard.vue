@@ -3,6 +3,12 @@
 export default{
   name: 'AppMainCard',
 
+  props:{
+    image: String,
+    name: String,
+    type: String
+  }
+
 }
 
 </script>
@@ -10,13 +16,13 @@ export default{
 <template>
   <div class="card">
     <div>
-      <!-- <img :src="" :alt=""> -->
+      <img :src="image" :alt="name">
     </div>
     <h3>
-
+      {{ name }}
     </h3>
     <p>
-
+      {{ type }}
     </p>
   </div>
   

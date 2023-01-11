@@ -14,6 +14,7 @@ export default{
   data() {
     return {
       store,
+      cardsList: []
     }
   },
 
@@ -21,15 +22,16 @@ export default{
     getCards() {
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0 ', {
         params: {
+
         }
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response.data.data);
+        this.cardsList = response.data.data;
       })
       .catch(function (error) {
         console.log(error);
       })
-      
     }
   },
 
@@ -51,7 +53,10 @@ export default{
           </p>
         </section>
         <section class="cards">
-          <AppMainCard />
+          <AppMainCard v-for="cardEl in cardsList"
+          :image="cardEl.card_images.image_url"
+          :name="cardEl.name"
+          :type="cardEl.type" />
         </section>
       </div>
     </div>
