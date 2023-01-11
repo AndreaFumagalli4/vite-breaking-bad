@@ -24,5 +24,15 @@ export default{
 
 <style lang="scss">
 @use './styles/general.scss' as *;
+@use './styles/partials/variables' as *;
+
+  header{
+    height: 90px;
+  }
+
+  main {
+    background-color: $bg-main-color;
+    height: 800px;
+  }
 
 </style>

@@ -11,10 +11,11 @@ export default{
   </h1>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   h1 {
-    padding: 1rem 7rem;
     font-weight: 600;
     font-size: 2.5rem;
+    line-height: calc(90px - 1.25rem);
+    padding-left: 5rem;
   }
 </style>
