@@ -1,7 +1,15 @@
 <script>
+import { store } from '../store.js';
 
 export default{
-  name: 'AppMain'
+  name: 'AppMain',
+
+  data() {
+    return {
+      store,
+    }
+  },
+
 }
 </script>
 
@@ -13,6 +21,11 @@ export default{
         <section class="card-number">
           <p>
             Found tot cards
+          </p>
+        </section>
+        <section class="cards">
+          <p>
+            {{ store.searchText }}
           </p>
         </section>
       </div>
