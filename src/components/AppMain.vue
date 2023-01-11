@@ -66,7 +66,6 @@ export default{
 
 <style lang="scss" scoped>
   div.card-album {
-    height: 500px;
     max-width: 1250px;
     margin: 0 auto;
     padding: 5rem;
@@ -74,7 +73,6 @@ export default{
 
   div.card-container {
     padding: 2rem;
-    height: 450px;
     background-color: white;
 
     section.card-number {
@@ -85,6 +83,12 @@ export default{
         padding: 1rem;
         font-weight: 500;
       }
+    }
+
+    section.cards{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
   }
 </style>

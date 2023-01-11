@@ -32,7 +32,6 @@ export default{
 
   main {
     background-color: $bg-main-color;
-    height: 800px;
   }
 
 </style>
