@@ -1,5 +1,6 @@
 <script>
 import { store } from '../store.js';
+import axios from 'axios';
 
 export default{
   name: 'AppMain',
@@ -7,8 +8,31 @@ export default{
   data() {
     return {
       store,
+      cardsList: []
     }
   },
+
+  methods: {
+    getCards() {
+      
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0 ', {
+        params: {
+
+        }
+      })
+      .then((response) => {
+        console.log(response.data.data);
+        this.cardsList = response.data.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+    }
+  },
+
+  created() {
+    this.getCards();
+  }
 
 }
 </script>
@@ -24,8 +48,8 @@ export default{
           </p>
         </section>
         <section class="cards">
-          <p>
-            {{ store.searchText }}
+          <p v-for="card in cardsList">
+            {{ card.name }}
           </p>
         </section>
       </div>
