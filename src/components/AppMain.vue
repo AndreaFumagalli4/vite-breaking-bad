@@ -49,12 +49,12 @@ export default{
       <div class="card-container">
         <section class="card-number">
           <p>
-            Found tot cards
+            Found {{ cardsList.length }} cards
           </p>
         </section>
         <section class="cards">
           <AppMainCard v-for="cardEl in cardsList"
-          :image="cardEl.card_images.image_url"
+          :image="cardEl.card_images[0].image_url"
           :name="cardEl.name"
           :type="cardEl.type" />
         </section>
