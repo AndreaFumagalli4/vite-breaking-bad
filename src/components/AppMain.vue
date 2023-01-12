@@ -1,13 +1,13 @@
 <script>
 import { store } from '../store.js';
 
-import SingleCard from './SingleCard.vue';
+import CardList from './CardList.vue';
 
 export default{
   name: 'AppMain',
 
   components: {
-    SingleCard,
+    CardList,
   },
 
   data() {
@@ -39,9 +39,8 @@ export default{
             Found {{ store.cardsList.length }} cards
           </p>
         </section>
-        <section class="cards">
-          <SingleCard v-for="singleCard in store.cardsList" 
-          :card="singleCard" />
+        <section class="cards-list">
+          <CardList />
         </section>
       </div>
     </div>
@@ -81,10 +80,5 @@ export default{
         font-weight: 500;
       }
     }
-  }
-  section.cards{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
   }
 </style>
