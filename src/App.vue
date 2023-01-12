@@ -48,8 +48,8 @@ export default{
     <AppHeader />
   </header>
 
-  <main @changeType="getCards(selectedArchetype)">
-    <AppMain />
+  <main>
+    <AppMain @changeType="getCards" />
   </main>
 
 </template>
