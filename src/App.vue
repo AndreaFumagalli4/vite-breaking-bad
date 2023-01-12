@@ -28,11 +28,11 @@ export default{
       .then((response) => {
         console.log(response.data.data);
         this.store.cardsList = response.data.data;
-        console.log(this.cardArchetype);
       })
       .catch(function (error) {
         console.log(error);
       })
+      this.cardArchetype = selectedArchetype;
     }
   },
 
