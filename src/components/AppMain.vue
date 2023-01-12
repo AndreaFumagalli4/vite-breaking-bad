@@ -45,6 +45,16 @@ export default{
 <template>
 
   <section>
+    <div class="dropdown-menu">
+      <select name="archetype" id="archetype-select">
+        <option value="alien">Alien</option>
+        <option value="laval">Laval</option>
+        <option value="vylon">Vylon</option>
+        <option value="inzektor">Inzektor</option>
+        <option value="umi">Umi</option>
+        <option value="gusto">Gusto</option>
+      </select>
+    </div>
     <div class="card-album">
       <div class="card-container">
         <section class="card-number">
@@ -65,10 +75,22 @@ export default{
 </template>
 
 <style lang="scss" scoped>
+
+  div.dropdown-menu {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 1rem 6rem;
+    
+    select {
+      height: 30px;
+      width: 10%;
+    }
+  }
+
   div.card-album {
     max-width: 1250px;
     margin: 0 auto;
-    padding: 5rem;
+    padding: 0 5rem;
   }
 
   div.card-container {
