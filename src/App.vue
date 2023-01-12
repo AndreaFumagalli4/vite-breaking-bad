@@ -14,14 +14,15 @@ export default{
   data() {
     return {
       store,
+      cardArchetype: 'alien',
     }
   },
 
   methods: {
-    getCards() {
+    getCards(selectedArchetype) {
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0 ', {
         params: {
-
+          archetype: selectedArchetype,
         }
       })
       .then((response) => {
@@ -35,7 +36,7 @@ export default{
   },
 
   created() {
-    this.getCards();
+    this.getCards(this.cardArchetype);
   }
 }
 </script>
@@ -46,7 +47,7 @@ export default{
     <AppHeader />
   </header>
 
-  <main>
+  <main @changeType="getCards">
     <AppMain />
   </main>
 

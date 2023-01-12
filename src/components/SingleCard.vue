@@ -25,7 +25,7 @@ export default{
       {{ card.name }}
     </h3>
     <p>
-      {{ card.type }}
+      {{ card.archetype }}
     </p>
   </div>
 </template>

@@ -22,7 +22,7 @@ export default{
 
   <section>
     <div class="dropdown-menu">
-      <select name="archetype" id="archetype-select">
+      <select name="archetype" id="archetype-select" @change="$emit('changeType', selectedArchetype)">
         <option value="alien">Alien</option>
         <option value="laval">Laval</option>
         <option value="vylon">Vylon</option>
