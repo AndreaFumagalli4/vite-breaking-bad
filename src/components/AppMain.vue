@@ -1,44 +1,20 @@
 <script>
 import { store } from '../store.js';
-import axios from 'axios';
 
-import AppMainCard from './AppMainCard.vue';
+import CardsList from './CardsList.vue';
 
 export default{
   name: 'AppMain',
 
   components: {
-    AppMainCard,
+    CardsList
   },
 
   data() {
     return {
       store,
-      cardsList: []
     }
-  },
-
-  methods: {
-    getCards() {
-      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0 ', {
-        params: {
-
-        }
-      })
-      .then((response) => {
-        console.log(response.data.data);
-        this.cardsList = response.data.data;
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-    }
-  },
-
-  created() {
-    this.getCards();
   }
-
 }
 </script>
 
@@ -59,14 +35,8 @@ export default{
       <div class="card-container">
         <section class="card-number">
           <p>
-            Found {{ cardsList.length }} cards
+            Found {{ store.cardsList.length }} cards
           </p>
-        </section>
-        <section class="cards">
-          <AppMainCard v-for="cardEl in cardsList"
-          :image="cardEl.card_images[0].image_url"
-          :name="cardEl.name"
-          :type="cardEl.type" />
         </section>
       </div>
     </div>
@@ -105,12 +75,6 @@ export default{
         padding: 1rem;
         font-weight: 500;
       }
-    }
-
-    section.cards{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
     }
   }
 </style>

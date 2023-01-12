@@ -1,31 +1,33 @@
 <script>
+import { store } from '../store.js';
 
 export default{
-  name: 'AppMainCard',
+  name: 'SingleCard',
 
-  props:{
-    image: String,
-    name: String,
-    type: String
+  props: {
+    card: Object,
+  },
+
+  data() {
+    return {
+      store,
+    }
   }
-
 }
-
 </script>
 
 <template>
   <div class="card">
     <div>
-      <img :src="image" :alt="name">
+      <img :src="card.card_images[0].image_url" :alt="card.name">
     </div>
     <h3>
-      {{ name }}
+      {{ card.name }}
     </h3>
     <p>
-      {{ type }}
+      {{ card.type }}
     </p>
   </div>
-  
 </template>
 
 <style lang="scss" scoped>
@@ -60,6 +62,4 @@ export default{
       font-weight: 300;
     }
   }
-
-
 </style>
