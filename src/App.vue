@@ -14,7 +14,6 @@ export default{
   data() {
     return {
       store,
-      cardsList: [],
     }
   },
 
@@ -27,7 +26,7 @@ export default{
       })
       .then((response) => {
         console.log(response.data.data);
-        this.cardsList = response.data.data;
+        this.store.cardsList = response.data.data;
       })
       .catch(function (error) {
         console.log(error);
