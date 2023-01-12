@@ -28,6 +28,7 @@ export default{
       .then((response) => {
         console.log(response.data.data);
         this.store.cardsList = response.data.data;
+        console.log(this.cardArchetype);
       })
       .catch(function (error) {
         console.log(error);
@@ -47,7 +48,7 @@ export default{
     <AppHeader />
   </header>
 
-  <main @changeType="getCards">
+  <main @changeType="getCards(selectedArchetype)">
     <AppMain />
   </main>
 
